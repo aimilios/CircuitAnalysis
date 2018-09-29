@@ -30,8 +30,6 @@ $u_C(t)=\frac{1}{C}\cdot \int_{0}^{t}i_C(t)dt +u_C(0)$ \hspace{1cm}  $i_C(t)=C \
 $u_R(t)=u_A(t)-u_B(t)$  \hspace{3cm}  $i_R(t)=i(t)$ \\ \\
 $u_C(t) = u_B(t)$       \hspace{4.25cm}  $i_C(t)=i(t)$  %4.25cm "=" to be aligned
 
-%\mathcal{L} \big\{V_s(S)\big\}
-
 \newpage
 \section{Initial Conditions} 
 For $t=0$:
@@ -87,7 +85,20 @@ All initial Conditions:
     I(s) (s+ \frac{1}{RC}) &= \frac{1}{R} (s V_s(s) - u_C(0)) \\
     I(s) = \frac{1}{R} (s V_s(&s) - u_C(0))\frac{1}{(s+ \frac{1}{RC})}
 \end{align*}\\
+
 \subsection{Solution According to Source Voltage Signal}\\
 \subsubsection{For DC Signal}
+\begin{align*}
+    u_s(t) &= Us \cdot u(t)\\
+    V_s(s) &= \mathcal{L} \big\{u_s(t)\big\} = \frac{U_s}{s}\\
+    I(s) &= \frac{1}{R} (U_s - u_C(0))\frac{1}{(s+ \frac{1}{RC})}
+\end{align*}
+\subsubsection{For AC Cosine Signal}
+\begin{align*}
+    u_s(t) &= Us \cdot cos(\omega t)\\
+    V_s(s) &= \mathcal{L} \big\{u_s(t)\big\} =U_s \frac{s}{s^2+\omega^2}\\
+    I(s) &= \frac{1}{R} (U_s \frac{s}{s^2+\omega^2} - u_C(0))\frac{1}{(s+ \frac{1}{RC})}
+\end{align*}
+
 
 \end{document}
