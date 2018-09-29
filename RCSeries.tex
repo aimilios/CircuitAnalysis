@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\title{RC Circuit Transient Analysis using Laplace Transform for both DC and AC Voltage Source }
+\date{2018-09-29}
+\author{Aimilios's Circuits}
+
+\documentclass{article}
+
+\begin{document}
+
+\maketitle
+\pagenumbering{gobble}
+
+\section{} For $t=0$:\\
+    \\Initial Capacitor Voltage: $u_c(0)$
+    \\From the circuit :
+    \begin{align}
+        u_B(0)-0& = u_c(0)  \nonumber\\
+        u_B(0) &= u_c(0)    \label{eq1}
+    \end{align}
+ \\ Kirchoffs Current Law in node A:
+\begin{align}
+       u_s(0) &= u_A(0) - 0 \nonumber \\
+       u_A(0) &= u_s(0)     \label{eq1}
+\end{align}
+Kirchoffs Current Law in node B:
+\begin{align*}
+    i_R(0)&=i_C(0) \\
+    \frac{u_A(0)-u_B(0)}{R} &= c \frac{du_B(t)}{dt}|_{\substack{t=0}} \\
+    u_B'(0)&=\frac{1}{RC}(u_A(0)-u_B(0))\\
+    u_B'(0)&=\frac{1}{RC}(u_s(0)-u_c(0))
+\end{align*}
+
+
+\end{document}
