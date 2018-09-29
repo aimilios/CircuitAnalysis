@@ -97,7 +97,7 @@ All initial Conditions:
 \begin{align*}
     u_s(t) &= Us \cdot cos(\omega t)\\
     V_s(s) &= \mathcal{L} \big\{u_s(t)\big\} =U_s \frac{s}{s^2+\omega^2}\\
-    I(s) &= \frac{1}{R} (U_s \frac{s}{s^2+\omega^2} - u_C(0))\frac{1}{(s+ \frac{1}{RC})}
+    I(s) &= \frac{1}{R} (Us \frac{ s^2}{s^2+\omega^2} - u_C(0))\frac{1}{(s+ \frac{1}{RC})}
 \end{align*}
 \subsection{Solution}
 \subsubsection{DC Solution}
@@ -125,7 +125,7 @@ Kirchoffs Current Law in node B:
     \text{From (1),(5):}
     \frac{1}{RC}\cdot V_s(s) - \frac{1}{RC}\cdot V_B(s) -s\cdot V_B(s) +u_C(0) &= 0\\
     V_B(s)\cdot(s+\frac{1}{RC}) &= \frac{1}{RC}\cdot V_s(s) + u_C(0)\\
-    V_B(s) &= \frac{1}{RC}\cdot (V_s(s) + u_C(0))\cdot \frac{1}{(s+\frac{1}{RC})}
+    V_B(s) = \frac{1}{RC}\cdot (&V_s(s) + u_C(0))\cdot \frac{1}{(s+\frac{1}{RC})}
 \end{align*}
 
 \subsection{Solution According to Source Voltage Signal}
@@ -133,21 +133,21 @@ Kirchoffs Current Law in node B:
 \begin{align*}
     u_s(t) &= Us \cdot u(t)\\
     V_s(s) &= \mathcal{L} \big\{u_s(t)\big\} = \frac{U_s}{s}\\
-    I(s) &= \frac{1}{R} (U_s - u_C(0))\frac{1}{(s+ \frac{1}{RC})}
+    V_B(s) &= \frac{1}{RC}\cdot (U_s + u_C(0))\cdot \frac{1}{(s+\frac{1}{RC})}
 \end{align*}
 \subsubsection{For AC Cosine Signal}
 \begin{align*}
     u_s(t) &= Us \cdot cos(\omega t)\\
     V_s(s) &= \mathcal{L} \big\{u_s(t)\big\} =U_s \frac{s}{s^2+\omega^2}\\
-    I(s) &= \frac{1}{R} (U_s \frac{s}{s^2+\omega^2} - u_C(0))\frac{1}{(s+ \frac{1}{RC})}
+    V_B(s) &= \frac{1}{RC}\cdot (Us\frac{ s^2}{s^2+\omega^2} + u_C(0))\cdot \frac{1}{(s+\frac{1}{RC})}
 \end{align*}
 \subsection{Solution}
 \subsubsection{DC Solution}
 \begin{align*}
-   i(t) = \frac{Us-u_C(0)}{R} e^(\frac{-t}{RC})
+   u_B(t) = Us + ( u_C(0)-Us)\cdot  e^(\frac{-t}{RC})
 \end{align*}
 \subsubsection{AC Cosine Solution}
 \begin{align*}
-   i(t) = \frac{Us\cdot C\cdot \omega \cdot sin(\omega t)-Us\cdot C^2\cdot R \cdot \omega^2 \cdot cos(\omega t)}{R^2\cdot C^2 \cdot \omega ^2 +1}-e^(\frac{-t}{RC})\cdot\frac{u_C(0)\cdot R^2\cdot C^2 \cdot \omega ^2-Us+u_C(0)}{R\cdot (R^2\cdot C^2 \cdot \omega ^2 +1)}
+   U_B(t) =  \frac{Us \cdot cos(\omega t) + Us\cdot C\cdot R \cdot sin(\omega t)}{R^2\cdot C^2 \cdot \omega ^2 +1}+e^(\frac{-t}{RC})\cdot \frac{u_C(0)\cdot R^2\cdot C^2\cdot \omega^2\cdot + u_C(0)-Us}{R^2\cdot C^2 \cdot \omega ^2 +1}
 \end{align*}
 \end{document}  
