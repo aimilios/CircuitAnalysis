@@ -30,6 +30,8 @@ $u_C(t)=\frac{1}{C}\cdot \int_{0}^{t}i_C(t)dt +u_C(0)$ \hspace{1cm}  $i_C(t)=C \
 $u_R(t)=u_A(t)-u_B(t)$  \hspace{3cm}  $i_R(t)=i(t)$ \\ \\
 $u_C(t) = u_B(t)$       \hspace{4.25cm}  $i_C(t)=i(t)$  %4.25cm "=" to be aligned
 
+%\mathcal{L} \big\{V_s(S)\big\}
+
 \newpage
 \section{Initial Conditions} 
 For $t=0$:
@@ -75,5 +77,17 @@ All initial Conditions:
       u_B'(0)&=\frac{1}{RC}(u_s(0)-u_c(0))\nonumber\\
       i(0)&=\frac{u_s(0)-u_C(0)}{R}\nonumber
 \end{align}
+\section{Mesh Analysis}
+\subsection{I Formula}
+\begin{align*}
+    -u_s(t)+u_R(t)+u_C(t)&=0 \\
+    -u_s(t)+R \cdot i_R(t) + \frac{1}{C}\cdot \int_{0}^{t}i_C(t)dt +u_C(0) &=0 \\
+    -u_s(t)+R \cdot i(t) + \frac{1}{C}\cdot \int_{0}^{t}i(t)dt +u_C(0) &=0\\
+    \text{Laplace Transform:}     -V_s(s)+R \cdot I(s) + \frac{1}{C} \frac{I(s)}{s} +\frac{u_C(0)}{s} &=0\\
+    I(s) (s+ \frac{1}{RC}) &= \frac{1}{R} (s V_s(s) - u_C(0)) \\
+    I(s) = \frac{1}{R} (s V_s(&s) - u_C(0))\frac{1}{(s+ \frac{1}{RC})}
+\end{align*}\\
+\subsection{Solution According to Source Voltage Signal}\\
+\subsubsection{For DC Signal}
 
 \end{document}
