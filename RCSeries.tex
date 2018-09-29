@@ -108,5 +108,46 @@ All initial Conditions:
 \begin{align*}
    i(t) = \frac{Us\cdot C\cdot \omega \cdot sin(\omega t)-Us\cdot C^2\cdot R \cdot \omega^2 \cdot cos(\omega t)}{R^2\cdot C^2 \cdot \omega ^2 +1}-e^(\frac{-t}{RC})\cdot\frac{u_C(0)\cdot R^2\cdot C^2 \cdot \omega ^2-Us+u_C(0)}{R\cdot (R^2\cdot C^2 \cdot \omega ^2 +1)}
 \end{align*}
+\section{Nodal Analysis}
+\subsection{V Formula}
+Kirchoffs Current Law in node A:
+\begin{align}
+       u_s(t) &= u_A(t) - 0 \nonumber \\
+       u_A(t) &= u_s(t)     \label{eq2}
+\end{align}
+Kirchoffs Current Law in node B:
+\begin{align*}
+    i_R(t)&=i_C(t) \\
+    \frac{u_A(t)-u_B(t)}{R} &= c \frac{du_B(t)}{dt}\\  
+    \frac{1}{RC}\cdot (u_A(t)-u_B(t)) - u_B'(t)&=0\\
+    \text{Laplace Transform:} \frac{1}{RC}\cdot V_A(s) - \frac{1}{RC}\cdot V_B(s) -(s\cdot V_B(s) -u_B(0)) &= 0\\
+    \frac{1}{RC}\cdot V_A(s) - \frac{1}{RC}\cdot V_B(s) -s\cdot V_B(s) +u_B(0) &= 0\\
+    \text{From (1),(5):}
+    \frac{1}{RC}\cdot V_s(s) - \frac{1}{RC}\cdot V_B(s) -s\cdot V_B(s) +u_C(0) &= 0\\
+    V_B(s)\cdot(s+\frac{1}{RC}) &= \frac{1}{RC}\cdot V_s(s) + u_C(0)\\
+    V_B(s) &= \frac{1}{RC}\cdot (V_s(s) + u_C(0))\cdot \frac{1}{(s+\frac{1}{RC})}
+\end{align*}
 
+\subsection{Solution According to Source Voltage Signal}
+\subsubsection{For DC Signal}
+\begin{align*}
+    u_s(t) &= Us \cdot u(t)\\
+    V_s(s) &= \mathcal{L} \big\{u_s(t)\big\} = \frac{U_s}{s}\\
+    I(s) &= \frac{1}{R} (U_s - u_C(0))\frac{1}{(s+ \frac{1}{RC})}
+\end{align*}
+\subsubsection{For AC Cosine Signal}
+\begin{align*}
+    u_s(t) &= Us \cdot cos(\omega t)\\
+    V_s(s) &= \mathcal{L} \big\{u_s(t)\big\} =U_s \frac{s}{s^2+\omega^2}\\
+    I(s) &= \frac{1}{R} (U_s \frac{s}{s^2+\omega^2} - u_C(0))\frac{1}{(s+ \frac{1}{RC})}
+\end{align*}
+\subsection{Solution}
+\subsubsection{DC Solution}
+\begin{align*}
+   i(t) = \frac{Us-u_C(0)}{R} e^(\frac{-t}{RC})
+\end{align*}
+\subsubsection{AC Cosine Solution}
+\begin{align*}
+   i(t) = \frac{Us\cdot C\cdot \omega \cdot sin(\omega t)-Us\cdot C^2\cdot R \cdot \omega^2 \cdot cos(\omega t)}{R^2\cdot C^2 \cdot \omega ^2 +1}-e^(\frac{-t}{RC})\cdot\frac{u_C(0)\cdot R^2\cdot C^2 \cdot \omega ^2-Us+u_C(0)}{R\cdot (R^2\cdot C^2 \cdot \omega ^2 +1)}
+\end{align*}
 \end{document}  
