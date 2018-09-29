@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{amsmath}
+\usepackage[american]{circuitikz}
 
 \title{RC Circuit Transient Analysis using Laplace Transform for both DC and AC Voltage Source }
 \author{Aimilios's Circuits}
@@ -7,9 +8,16 @@
 \begin{document}
 
 \maketitle
-\pagenumbering{gobble}
 
-\section{} For $t=0$:\\
+
+\begin{circuitikz}
+      \draw (0,0)
+      to[V,v=$u_s$] (0,3) % The voltage source
+      to[R=$R$, v=$u_R$, i=$i_R$] (6,3)
+      to[C=$C$, v=$u_C$, i=$i_C$] (6,0) % The capacitor
+      to[short] (0,0);
+\end{circuitikz}
+    \\For $t=0$:
     \\Initial Capacitor Voltage: $u_c(0)$, so from the circuit:
     \begin{align}
         u_B(0)-0& = u_c(0)  \nonumber\\
