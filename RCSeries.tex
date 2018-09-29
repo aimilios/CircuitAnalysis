@@ -86,7 +86,7 @@ All initial Conditions:
     I(s) = \frac{1}{R} (s V_s(&s) - u_C(0))\frac{1}{(s+ \frac{1}{RC})}
 \end{align*}\\
 
-\subsection{Solution According to Source Voltage Signal}\\
+\subsection{Solution According to Source Voltage Signal}
 \subsubsection{For DC Signal}
 \begin{align*}
     u_s(t) &= Us \cdot u(t)\\
@@ -99,6 +99,14 @@ All initial Conditions:
     V_s(s) &= \mathcal{L} \big\{u_s(t)\big\} =U_s \frac{s}{s^2+\omega^2}\\
     I(s) &= \frac{1}{R} (U_s \frac{s}{s^2+\omega^2} - u_C(0))\frac{1}{(s+ \frac{1}{RC})}
 \end{align*}
+\subsection{Solution}
+\subsubsection{DC Solution}
+\begin{align*}
+   i(t) = \frac{Us-u_C(0)}{R} e^(\frac{-t}{RC})
+\end{align*}
+\subsubsection{AC Cosine Solution}
+\begin{align*}
+   i(t) = \frac{Us\cdot C\cdot \omega \cdot sin(\omega t)-Us\cdot C^2\cdot R \cdot \omega^2 \cdot cos(\omega t)}{R^2\cdot C^2 \cdot \omega ^2 +1}-e^(\frac{-t}{RC})\cdot\frac{u_C(0)\cdot R^2\cdot C^2 \cdot \omega ^2-Us+u_C(0)}{R\cdot (R^2\cdot C^2 \cdot \omega ^2 +1)}
+\end{align*}
 
-
-\end{document}
+\end{document}  
