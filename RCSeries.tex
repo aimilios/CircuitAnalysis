@@ -9,15 +9,22 @@
 
 \maketitle
 
-
-\begin{circuitikz}
+\section{RC Circuit}
+\begin{circuitikz}[american voltages]
       \draw (0,0)
-      to[V,v=$u_s$] (0,3) % The voltage source
-      to[R=$R$, v=$u_R$, i=$i_R$] (6,3)
-      to[C=$C$, v=$u_C$, i=$i_C$] (6,0) % The capacitor
+      to[V=$u_s$,invert,v=$u_s(t)$] (0,3) % The voltage source
+      to[R=$R$, v=$u_R(t)$, i=$i_R(t)$] (6,3)
+      to[C=$C$, v=$u_C(t)$, i=$i_C(t)$] (6,0) % The capacitor
       to[short] (0,0);
+      \draw[thin, <-, >=triangle 45] (3,1.25)node{$i(t)$}  ++(-60:0.5) arc (-60:170:0.5);
 \end{circuitikz}
-    \\For $t=0$:
+
+\subsection{V-I Relations}
+
+$u_R(t)=R\cdot i_R(t)$   \hspace{3.1cm}  $i_R(t)=\frac{1}{R}\cdot u_R(t)$\\ \\
+$u_C(t)=\frac{1}{C}\cdot \int_{0}^{t}i_C(t)dt +u_C(0)$ \hspace{1cm}  $i_C(t)=C \cdot \frac{d u_C(t)}{dt}$
+\section{Initial Conditions} 
+    For $t=0$:
     \\Initial Capacitor Voltage: $u_c(0)$, so from the circuit:
     \begin{align}
         u_B(0)-0& = u_c(0)  \nonumber\\
