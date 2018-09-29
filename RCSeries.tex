@@ -2,10 +2,7 @@
 \usepackage{amsmath}
 
 \title{RC Circuit Transient Analysis using Laplace Transform for both DC and AC Voltage Source }
-\date{2018-09-29}
 \author{Aimilios's Circuits}
-
-\documentclass{article}
 
 \begin{document}
 
@@ -13,8 +10,7 @@
 \pagenumbering{gobble}
 
 \section{} For $t=0$:\\
-    \\Initial Capacitor Voltage: $u_c(0)$
-    \\From the circuit :
+    \\Initial Capacitor Voltage: $u_c(0)$, so from the circuit:
     \begin{align}
         u_B(0)-0& = u_c(0)  \nonumber\\
         u_B(0) &= u_c(0)    \label{eq1}
@@ -22,15 +18,21 @@
  \\ Kirchoffs Current Law in node A:
 \begin{align}
        u_s(0) &= u_A(0) - 0 \nonumber \\
-       u_A(0) &= u_s(0)     \label{eq1}
+       u_A(0) &= u_s(0)     \label{eq2}
 \end{align}
 Kirchoffs Current Law in node B:
-\begin{align*}
-    i_R(0)&=i_C(0) \\
-    \frac{u_A(0)-u_B(0)}{R} &= c \frac{du_B(t)}{dt}|_{\substack{t=0}} \\
-    u_B'(0)&=\frac{1}{RC}(u_A(0)-u_B(0))\\
-    u_B'(0)&=\frac{1}{RC}(u_s(0)-u_c(0))
-\end{align*}
-
+\begin{align}
+    i_R(0)&=i_C(0) \nonumber \\
+    \frac{u_A(0)-u_B(0)}{R} &= c \frac{du_B(t)}{dt}|_{\substack{t=0}} \nonumber \\
+    u_B'(0)&=\frac{1}{RC}(u_A(0)-u_B(0)) \nonumber \\
+  u_B'(0)&=\frac{1}{RC}(u_s(0)-u_c(0)) \label{eq3} 
+\end{align}
+ \\ Kirchoffs Voltage Law in loop:
+\begin{align}
+      -u_s(0)+u_R(0)+u_C(0)&=0 \nonumber\\
+      -u_s(0)+R*i_R(0)+u_C(0)&=0 \nonumber\\
+      -u_s(0)+R*i(0)+u_C(0)&=0 \nonumber\\
+      i(0)&=\frac{u_s(0)-u_C(0)}{R} \label{eqn4}
+\end{align}
 
 \end{document}
