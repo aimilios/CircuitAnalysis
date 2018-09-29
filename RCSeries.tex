@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{amsmath}
+\usepackage[american]{circuitikz}
 
 \title{RC Circuit Transient Analysis using Laplace Transform for both DC and AC Voltage Source }
 \author{Aimilios's Circuits}
@@ -7,9 +8,27 @@
 \begin{document}
 
 \maketitle
-\pagenumbering{gobble}
 
-\section{} For $t=0$:\\
+\section{RC Circuit}
+\begin{circuitikz}[american voltages]
+      \draw (0,0)
+      to[V=$u_s$,invert,v=$u_s(t)$] (0,3)       % The Voltage source
+      to[R=$R$, v=$u_R(t)$, i=$i_R(t)$] (6,3)   % The Resistor
+      to[C=$C$, v=$u_C(t)$, i=$i_C(t)$] (6,0)   % The Capacitor
+      to[short] (0,0);
+      \draw[thin, <-, >=triangle 45] (3,1.25)node{$i(t)$}  ++(-60:0.5) arc (-60:170:0.5);  %Mesh Current Arrow
+\end{circuitikz}
+
+\subsection{V-I Relations}  % V-I Relations
+$u_R(t)=R\cdot i_R(t)$   \hspace{3.1cm}  $i_R(t)=\frac{1}{R}\cdot u_R(t)$\\ \\  %3.1cm in order for the "=" to be aligned.
+$u_C(t)=\frac{1}{C}\cdot \int_{0}^{t}i_C(t)dt +u_C(0)$ \hspace{1cm}  $i_C(t)=C \cdot     \frac{d u_C(t)}{dt}$
+
+\subsection{V-I Relations to Mesh Current and Nodal Voltage}  %V-I Relations to Mesh Current and Nodal Voltage
+$u_R(t)=u_A(t)-u_B(t)$  \hspace{3cm}  $i_R(t)=i(t)$ \\
+$u_C(t) = u_B(t)$       \hspace{4.25cm}  $i_C(t)=i(t)$  %4.25cm "=" to be aligned
+
+\section{Initial Conditions} 
+    For $t=0$:
     \\Initial Capacitor Voltage: $u_c(0)$, so from the circuit:
     \begin{align}
         u_B(0)-0& = u_c(0)  \nonumber\\
